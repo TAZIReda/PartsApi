@@ -5,15 +5,15 @@ import { TypeOrmModuleOptions, TypeOrmModule } from '@nestjs/typeorm';
 import { PartsModule } from './parts/parts.module';
 import { UsersModule } from './users/users.module';
 
-const ormOptions: TypeOrmModuleOptions = {
+const ormOptions: TypeOrmModuleOptions = { 
   type: 'mysql',
   host: 'localhost',
   port: 3306,
   username: 'root',
   password: '',
-  database: 'blog',
+  database: 'parts',
   autoLoadEntities : true,
-  synchronize : true
+  synchronize : true,
 }
 
 @Module({

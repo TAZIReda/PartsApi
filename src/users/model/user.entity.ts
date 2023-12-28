@@ -29,6 +29,6 @@ export class UserEntity {
   @Column({ type: 'enum', enum: UserRole, default: UserRole.USER })
   role?: UserRole;
 
-  @OneToMany((type) => PartEntity, (PartEntity) => PartEntity.user)
+  @OneToMany(type => PartEntity, (PartEntity) => PartEntity.user)
   parts?: Part[];
 }
