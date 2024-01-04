@@ -1,13 +1,15 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Request } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Request, UseGuards } from '@nestjs/common';
 import { Part } from '../model/part.interface';
 import { PartsService } from '../service/parts.service';
 import { Observable } from 'rxjs';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-guard';
 
 @Controller('parts')
 export class PartsController {
 
     constructor(private partService: PartsService){}
 
+    @UseGuards(JwtAuthGuard) 
     @Post('createPart')
     createPart(@Body() part: Part, @Request() request):Observable<Part>{
         const user= request.user;
