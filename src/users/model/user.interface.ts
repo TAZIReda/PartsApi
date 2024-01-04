@@ -6,7 +6,7 @@ export interface User {
     email?: string;
     password?: string;
     address?: string;
-    enterprise?: string;
+    entreprise?: string;
     phone?: number;
     role?: UserRole;
     parts?: Part[];

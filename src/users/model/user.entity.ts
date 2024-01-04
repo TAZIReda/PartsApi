@@ -21,7 +21,7 @@ export class UserEntity {
   address?: string;
 
   @Column()
-  enterprise?: string;
+  entreprise?: string;
 
   @Column()
   phone?: number;

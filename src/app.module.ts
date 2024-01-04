@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { TypeOrmModuleOptions, TypeOrmModule } from '@nestjs/typeorm';
 import { PartsModule } from './parts/parts.module';
 import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
+import { AuthService } from './auth/service/auth.service';
 
 const ormOptions: TypeOrmModuleOptions = { 
   type: 'mysql',
@@ -21,6 +23,7 @@ const ormOptions: TypeOrmModuleOptions = {
     TypeOrmModule.forRoot(ormOptions),
     PartsModule,
     UsersModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
