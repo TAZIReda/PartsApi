@@ -16,6 +16,7 @@ export class PartsController {
         return this.partService.createPart(part, user);
     }
 
+    @UseGuards(JwtAuthGuard)
     @Put(':id')
     updatePart(@Body() part: Part, @Param('id') id:number):Observable<Part>{
         return this.partService.updatePart(Number(id),part);
@@ -31,6 +32,7 @@ export class PartsController {
         return this.partService.findAll();
     }
 
+    @UseGuards(JwtAuthGuard)
     @Delete(':id')
     deletePart(@Param('id') id:number):Observable<Part>{
         return this.partService.deletePart(Number(id));

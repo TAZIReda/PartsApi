@@ -28,11 +28,13 @@ export class PartsService {
 
     findOne(id: number): Observable<Part> {
         console.log('first find')
-        return from(this.partRepository.findOneBy({id}));
+        return from(this.partRepository.findOne({
+            where: {id},
+            relations: ['user']}));
     }
 
     findAll(): Observable<Part[]> {
-     return from(this.partRepository.find());   
+     return from(this.partRepository.find({relations:['user']}));   
     }
 
     deletePart(id: number): Observable<any> {
